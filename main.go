@@ -1,6 +1,7 @@
 package main
 
 import (
+	"blog/controllers"
 	"blog/dao/mysql"
 	"blog/dao/redis"
 	"blog/logger"
@@ -56,6 +57,12 @@ func main() {
 
 	if err := snowflake.Init(settings.Conf.StartTime, settings.Conf.MachineID); err != nil {
 		fmt.Printf("init snowflake failed,err:%v\n", err)
+		return
+	}
+
+	// 初始化gin框架内置的校验器使用的翻译器
+	if err := controllers.InitTrans("zh"); err != nil {
+		fmt.Printf("init InitTrans failed,err:%v\n", err)
 		return
 	}
 
