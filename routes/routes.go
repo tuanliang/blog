@@ -1,8 +1,8 @@
 package routes
 
 import (
+	"blog/logger"
 	"net/http"
-	"web-app/logger"
 
 	"github.com/gin-gonic/gin"
 )

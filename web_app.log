@@ -36,3 +36,8 @@
 {"level":"INFO","time":"2023-03-22T17:00:23.548+0800","caller":"logger/logger.go:70","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"::1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.44","errors":"","cost":0.0001561}
 {"level":"INFO","time":"2023-03-22T17:00:26.673+0800","caller":"web-app/main.go:80","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-03-22T17:00:29.423+0800","caller":"web-app/main.go:89","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-03-22T18:43:10.609+0800","caller":"blog/main.go:41","msg":"logger init success..."}
+{"level":"DEBUG","time":"2023-03-22T18:43:51.001+0800","caller":"blog/main.go:40","msg":"logger init success..."}
+{"level":"INFO","time":"2023-03-22T18:44:04.488+0800","caller":"logger/logger.go:70","msg":"/","status":200,"method":"GET","path":"/","query":"","ip":"::1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36 Edg/111.0.1661.44","errors":"","cost":0.0005152}
+{"level":"INFO","time":"2023-03-22T18:44:07.675+0800","caller":"blog/main.go:85","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-03-22T18:44:10.416+0800","caller":"blog/main.go:94","msg":"Server exiting"}

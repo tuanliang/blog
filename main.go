@@ -1,6 +1,12 @@
 package main
 
 import (
+	"blog/dao/mysql"
+	"blog/dao/redis"
+	"blog/logger"
+	"blog/pkg/snowflake"
+	"blog/routes"
+	"blog/settings"
 	"context"
 	"fmt"
 	"log"
@@ -9,11 +15,6 @@ import (
 	"os/signal"
 	"syscall"
 	"time"
-	"web-app/dao/mysql"
-	"web-app/dao/redis"
-	"web-app/logger"
-	"web-app/routes"
-	"web-app/settings"
 
 	"go.uber.org/zap"
 )
@@ -26,7 +27,6 @@ func main() {
 		fmt.Println("need config file config.yaml")
 		return
 	}
-	fmt.Println(1111, os.Args)
 	// 1.加载配置
 	if err := settings.Init(os.Args[1]); err != nil {
 		fmt.Printf("init settings.init,err:%v\n", err)
@@ -53,6 +53,11 @@ func main() {
 		return
 	}
 	redis.Close()
+
+	if err := snowflake.Init(settings.Conf.StartTime, settings.Conf.MachineID); err != nil {
+		fmt.Printf("init snowflake failed,err:%v\n", err)
+		return
+	}
 
 	// 5.注册路由
 	r := routes.Setup()

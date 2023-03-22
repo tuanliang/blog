@@ -1,8 +1,8 @@
 package redis
 
 import (
+	"blog/settings"
 	"fmt"
-	"web-app/settings"
 
 	"github.com/go-redis/redis"
 )
