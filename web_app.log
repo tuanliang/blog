@@ -134,3 +134,13 @@
 {"level":"DEBUG","time":"2023-03-23T09:10:49.737+0800","caller":"blog/main.go:41","msg":"logger init success..."}
 {"level":"INFO","time":"2023-03-23T09:10:54.714+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-03-23T09:10:54.714+0800","caller":"blog/main.go:101","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-03-23T09:36:00.006+0800","caller":"blog/main.go:41","msg":"logger init success..."}
+{"level":"ERROR","time":"2023-03-23T09:36:19.417+0800","caller":"controllers/user.go:73","msg":"logic.Login failed：","error":"用户不存在"}
+{"level":"INFO","time":"2023-03-23T09:36:19.418+0800","caller":"logger/logger.go:80","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0040214}
+{"level":"ERROR","time":"2023-03-23T09:36:23.567+0800","caller":"controllers/user.go:73","msg":"logic.Login failed：","error":"用户不存在"}
+{"level":"INFO","time":"2023-03-23T09:36:23.567+0800","caller":"logger/logger.go:80","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0017917}
+{"level":"INFO","time":"2023-03-23T09:36:46.499+0800","caller":"logger/logger.go:80","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0009975}
+{"level":"ERROR","time":"2023-03-23T09:36:49.907+0800","caller":"controllers/user.go:57","msg":"Login with invaild params：","error":"Key: 'ParamLogin.password' Error:Field validation for 'password' failed on the 'required' tag"}
+{"level":"INFO","time":"2023-03-23T09:36:49.908+0800","caller":"logger/logger.go:80","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0007139}
+{"level":"INFO","time":"2023-03-23T09:37:33.514+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-03-23T09:37:33.514+0800","caller":"blog/main.go:101","msg":"Server exiting"}
