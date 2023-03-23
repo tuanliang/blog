@@ -122,3 +122,15 @@
 {"level":"INFO","time":"2023-03-23T08:46:44.221+0800","caller":"logger/logger.go:70","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0552575}
 {"level":"INFO","time":"2023-03-23T08:48:33.132+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-03-23T08:48:33.133+0800","caller":"blog/main.go:101","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-03-23T09:07:22.792+0800","caller":"blog/main.go:41","msg":"logger init success..."}
+{"level":"INFO","time":"2023-03-23T09:07:36.817+0800","caller":"logger/logger.go:80","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0090806}
+{"level":"ERROR","time":"2023-03-23T09:07:55.362+0800","caller":"controllers/user.go:17","msg":"SignUpHandler with invaild params：","error":"Key: 'ParamSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag\nKey: 'ParamSignUp.re_password' Error:Field validation for 're_password' failed on the 'eqfield' tag"}
+{"level":"INFO","time":"2023-03-23T09:07:55.365+0800","caller":"logger/logger.go:80","msg":"/signup","status":200,"method":"POST","path":"/signup","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0029224}
+{"level":"INFO","time":"2023-03-23T09:08:29.765+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-03-23T09:08:29.765+0800","caller":"blog/main.go:101","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-03-23T09:10:34.744+0800","caller":"blog/main.go:41","msg":"logger init success..."}
+{"level":"INFO","time":"2023-03-23T09:10:46.449+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-03-23T09:10:46.450+0800","caller":"blog/main.go:101","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-03-23T09:10:49.737+0800","caller":"blog/main.go:41","msg":"logger init success..."}
+{"level":"INFO","time":"2023-03-23T09:10:54.714+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-03-23T09:10:54.714+0800","caller":"blog/main.go:101","msg":"Server exiting"}
