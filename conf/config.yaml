@@ -16,7 +16,7 @@ mysql:
   port: 3306
   user: "root"
   password: "root"
-  dbname: "gotest1"
+  dbname: "gotestdb"
   max_open_conns: 200
   max_idle_conns: 50
 redis:

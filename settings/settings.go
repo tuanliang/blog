@@ -32,7 +32,7 @@ type MySQLConfig struct {
 	Host         string `mapstructure:"host"`
 	User         string `mapstructure:"user"`
 	Password     string `mapstructure:"password"`
-	DbName       string `mapstructure:"db_name"`
+	DbName       string `mapstructure:"dbname"` // mapstructure中的值要和配置文件config.yaml中的值对应上
 	Port         int    `mapstructure:"port"`
 	MaxOpenConns int    `mapstructure:"max_open_conns"`
 	MaxIdleConns int    `mapstructure:"max_idle_conns"`
