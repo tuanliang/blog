@@ -25,6 +25,7 @@ func SignUp(p *models.ParamSignUp) (err error) {
 }
 
 func Login(p *models.ParamLogin) (token string, err error) {
+
 	user := &models.User{
 		Username: p.Username,
 		Password: p.Password,

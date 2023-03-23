@@ -5,6 +5,9 @@ port: 8081
 start_time: "2023-03-22"
 machine_id: 1
 
+auth:
+  jwt_expire: 8765
+
 log:
   level: "debug"
   filename: "web_app.log"

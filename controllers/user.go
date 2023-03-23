@@ -48,6 +48,7 @@ func SignUpHandler(c *gin.Context) {
 }
 
 func LoginHandler(c *gin.Context) {
+
 	// 1.获取请求参数和参数校验
 	p := new(models.ParamLogin)
 	if err := c.ShouldBindJSON(&p); err != nil { // shouldbindjson用来做参数类型校验string，int
