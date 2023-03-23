@@ -144,3 +144,8 @@
 {"level":"INFO","time":"2023-03-23T09:36:49.908+0800","caller":"logger/logger.go:80","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0007139}
 {"level":"INFO","time":"2023-03-23T09:37:33.514+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-03-23T09:37:33.514+0800","caller":"blog/main.go:101","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-03-23T10:07:20.639+0800","caller":"blog/main.go:41","msg":"logger init success..."}
+{"level":"ERROR","time":"2023-03-23T10:07:56.668+0800","caller":"controllers/user.go:54","msg":"Login with invaild params：","error":"Key: 'ParamLogin.password' Error:Field validation for 'password' failed on the 'required' tag"}
+{"level":"INFO","time":"2023-03-23T10:07:56.669+0800","caller":"logger/logger.go:80","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0016753}
+{"level":"INFO","time":"2023-03-23T10:08:07.937+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-03-23T10:08:07.939+0800","caller":"blog/main.go:101","msg":"Server exiting"}
