@@ -149,3 +149,10 @@
 {"level":"INFO","time":"2023-03-23T10:07:56.669+0800","caller":"logger/logger.go:80","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.0016753}
 {"level":"INFO","time":"2023-03-23T10:08:07.937+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
 {"level":"INFO","time":"2023-03-23T10:08:07.939+0800","caller":"blog/main.go:101","msg":"Server exiting"}
+{"level":"DEBUG","time":"2023-03-23T10:47:59.329+0800","caller":"blog/main.go:41","msg":"logger init success..."}
+{"level":"INFO","time":"2023-03-23T10:48:25.002+0800","caller":"logger/logger.go:80","msg":"/login","status":200,"method":"POST","path":"/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.26.3","errors":"","cost":0.007669}
+{"level":"INFO","time":"2023-03-23T11:06:00.555+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
+{"level":"DEBUG","time":"2023-03-23T13:20:23.407+0800","caller":"blog/main.go:41","msg":"logger init success..."}
+{"level":"DEBUG","time":"2023-03-23T13:20:59.714+0800","caller":"blog/main.go:41","msg":"logger init success..."}
+{"level":"INFO","time":"2023-03-23T13:21:26.384+0800","caller":"blog/main.go:92","msg":"Shutdown Server ..."}
+{"level":"INFO","time":"2023-03-23T13:21:26.385+0800","caller":"blog/main.go:101","msg":"Server exiting"}

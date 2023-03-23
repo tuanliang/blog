@@ -3,6 +3,7 @@ package routes
 import (
 	"blog/controllers"
 	"blog/logger"
+	"blog/middlewares"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -19,6 +20,9 @@ func Setup(mode string) *gin.Engine {
 	// 注册业务路由
 	r.POST("/signup", controllers.SignUpHandler)
 	r.POST("/login", controllers.LoginHandler)
+	r.GET("/ping", middlewares.JWTAuthMiddleware(), func(c *gin.Context) {
+		c.String(http.StatusOK, "pong")
+	})
 
 	r.GET("/", func(c *gin.Context) {
 		c.String(http.StatusOK, "ok")
