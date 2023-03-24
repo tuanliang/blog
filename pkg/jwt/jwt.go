@@ -13,17 +13,19 @@ import (
 // 我们这里需要额外记录一个UserID字段，所以要自定义结构体
 // 如果想要保存更多信息，都可以添加到这个结构体中
 type MyClaims struct {
-	UserID int64 `json:"user_id"`
+	UserID   int64  `json:"user_id"`
+	Username string `json:"username"`
 	jwt.StandardClaims
 }
 
 var MySecret = []byte("shiyi")
 
 // GenToken 生成JWT
-func GenToken(UserID int64) (string, error) {
+func GenToken(UserID int64, username string) (string, error) {
 	// 创建一个我们自己的声明
 	c := MyClaims{
 		UserID, // 自定义字段
+		"username",
 		jwt.StandardClaims{
 			ExpiresAt: time.Now().Add(
 				time.Duration(viper.GetInt("auth.jwt_expire")) * time.Hour).Unix(), // 过期时间
