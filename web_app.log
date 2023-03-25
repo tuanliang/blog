@@ -121,3 +121,18 @@
 {"level":"DEBUG","time":"2023-03-24T17:05:02.726+0800","caller":"blog/main.go:35","msg":"logger init success..."}
 {"level":"ERROR","time":"2023-03-24T17:05:15.047+0800","caller":"controllers/post.go:32","msg":"logic.CreatePost(p) failed","error":"redis: client is closed"}
 {"level":"INFO","time":"2023-03-24T17:05:15.049+0800","caller":"logger/logger.go:80","msg":"/api/v1/post","status":200,"method":"POST","path":"/api/v1/post","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.31.3","errors":"","cost":0.0205119}
+{"level":"DEBUG","time":"2023-03-24T17:12:49.994+0800","caller":"blog/main.go:35","msg":"logger init success..."}
+{"level":"DEBUG","time":"2023-03-25T15:47:17.227+0800","caller":"blog/main.go:35","msg":"logger init success..."}
+{"level":"DEBUG","time":"2023-03-25T15:49:52.468+0800","caller":"blog/main.go:35","msg":"logger init success..."}
+{"level":"INFO","time":"2023-03-25T15:50:35.392+0800","caller":"logger/logger.go:80","msg":"/api/v1/post2","status":200,"method":"GET","path":"/api/v1/post2","query":"page=1&size=2&order=score","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.31.3","errors":"","cost":0.0003815}
+{"level":"INFO","time":"2023-03-25T15:51:02.982+0800","caller":"logger/logger.go:80","msg":"/api/v1/posts2","status":200,"method":"GET","path":"/api/v1/posts2","query":"page=1&size=2&order=score","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.31.3","errors":"","cost":0.000442}
+{"level":"INFO","time":"2023-03-25T15:51:19.367+0800","caller":"logger/logger.go:80","msg":"/api/v1/posts2","status":200,"method":"GET","path":"/api/v1/posts2","query":"page=1&size=2&order=score","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.31.3","errors":"","cost":0.0009447}
+{"level":"ERROR","time":"2023-03-25T15:51:29.104+0800","caller":"controllers/user.go:70","msg":"logic.Login failed：","username":"er","error":"用户名或密码错误"}
+{"level":"INFO","time":"2023-03-25T15:51:29.106+0800","caller":"logger/logger.go:80","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.31.3","errors":"","cost":0.0092058}
+{"level":"ERROR","time":"2023-03-25T15:51:36.108+0800","caller":"controllers/user.go:70","msg":"logic.Login failed：","username":"er","error":"用户名或密码错误"}
+{"level":"INFO","time":"2023-03-25T15:51:36.109+0800","caller":"logger/logger.go:80","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.31.3","errors":"","cost":0.0021628}
+{"level":"INFO","time":"2023-03-25T15:51:45.996+0800","caller":"logger/logger.go:80","msg":"/api/v1/login","status":200,"method":"POST","path":"/api/v1/login","query":"","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.31.3","errors":"","cost":0.0018561}
+{"level":"ERROR","time":"2023-03-25T15:51:55.441+0800","caller":"controllers/post.go:102","msg":"logic.GetPostList() failed","error":"redis: client is closed"}
+{"level":"INFO","time":"2023-03-25T15:51:55.443+0800","caller":"logger/logger.go:80","msg":"/api/v1/posts2","status":200,"method":"GET","path":"/api/v1/posts2","query":"page=1&size=2&order=score","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.31.3","errors":"","cost":0.0019144}
+{"level":"ERROR","time":"2023-03-25T15:52:21.815+0800","caller":"controllers/post.go:102","msg":"logic.GetPostList() failed","error":"redis: client is closed"}
+{"level":"INFO","time":"2023-03-25T15:52:21.817+0800","caller":"logger/logger.go:80","msg":"/api/v1/posts2","status":200,"method":"GET","path":"/api/v1/posts2","query":"page=1&size=2&order=score","ip":"127.0.0.1","user-agent":"PostmanRuntime/7.31.3","errors":"","cost":0.0019862}
