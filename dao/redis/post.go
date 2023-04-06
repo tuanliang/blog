@@ -8,33 +8,29 @@ import (
 	"github.com/go-redis/redis"
 )
 
-func getIDsFromKey(key string, page, size int64) ([]string, error) {
-	// 2.确定查询的索引起始点
+func getIDsFormKey(key string, page, size int64) ([]string, error) {
 	start := (page - 1) * size
 	end := start + size - 1
-	// ZRVRANGE查询 按分数从大到小的顺序查询指定数量的元素
+	// 3.ZREVRANGE 查询
 	return client.ZRevRange(key, start, end).Result()
 }
+
 func GetPostIDsInOrder(p *models.ParamPostList) ([]string, error) {
-	// 2．去redis查询id列表
-	// 1. 根据用户请求中携带的order参数确定要查询的redis key
-	key := getRedisKey(KeyPostTimeZSet)
+	// 从redis获取id
+	// 1.从请求参宿中携带的order参数 确定要查询的redis key
+	key := getRedisKey(KeyPostTimeZset)
 	if p.Order == models.OrderScore {
-		key = getRedisKey(KeyPostScoreZSet)
+		key = getRedisKey(KeyPostScoreZset)
 	}
-	// // 2.确定查询的索引起始点
-	// start := (p.Page - 1) * p.Size
-	// end := start + p.Size - 1
-	// // ZRVRANGE查询 按分数从大到小的顺序查询指定数量的元素
-	// return client.ZRevRange(key, start, end).Result()
-	return getIDsFromKey(key, p.Page, p.Size)
+	// 2.确定查询的索引起始点
+	return getIDsFormKey(key, p.Page, p.Size)
 }
 
 func GetPostVoteData(ids []string) (data []int64, err error) {
 	// data = make([]int64, 0, len(ids))
 	// for _, id := range ids {
-	// 	key := getRedisKey(KeyPostVotedZSetPF + id)
-	// 	// 查找key中分数是1的元素的数量-》统计每篇帖子的赞成票的数量
+	// 	key := getRedisKey(KeyPostVotedZsetPF + id)
+	// 	// 查找key中分数是1的元素的数量--》统计每篇帖子的赞成票的数量
 	// 	v := client.ZCount(key, "1", "1").Val()
 	// 	data = append(data, v)
 	// }
@@ -42,40 +38,38 @@ func GetPostVoteData(ids []string) (data []int64, err error) {
 	// 使用pipeline一次发送多条命令，减少RTT
 	pipeline := client.Pipeline()
 	for _, id := range ids {
-		key := getRedisKey(KeyPostVotedZSetPF + id)
+		key := getRedisKey(KeyPostVotedZsetPF + id)
 		pipeline.ZCount(key, "1", "1")
 	}
 	cmders, err := pipeline.Exec()
 	if err != nil {
 		return nil, err
 	}
-
 	data = make([]int64, 0, len(cmders))
 	for _, cmder := range cmders {
 		v := cmder.(*redis.IntCmd).Val()
 		data = append(data, v)
 	}
+
 	return
 }
 
 func GetCommunityPostIDsInOrder(p *models.ParamPostList) ([]string, error) {
-	orderKey := getRedisKey(KeyPostTimeZSet)
+	orderKey := getRedisKey(KeyPostTimeZset)
 	if p.Order == models.OrderScore {
-		orderKey = getRedisKey(KeyPostScoreZSet)
+		orderKey = getRedisKey(KeyPostScoreZset)
 	}
-
-	//使用 zintecstoce,把分区的帖子set与帖子分数的 Zse生成一个新的?set
-	//针对新的set按之前的逻辑取数据
+	// 使用zinterstore 把分区的帖子set与帖子分数的zset 生成一个新的zset
 
 	// 社区的key
 	cKey := getRedisKey(KeyCommunitySetPF + strconv.Itoa(int(p.CommunityID)))
-	//利用缓存key减少zinterstore执行的次数
 
+	// 利用缓存key减少zinterstore执行的次数
 	key := orderKey + strconv.Itoa(int(p.CommunityID))
-	if client.Exists(orderKey).Val() < 1 {
+	if client.Exists(key).Val() < 1 {
 		// 不存在，需要计算
 		pipeline := client.Pipeline()
-		client.ZInterStore(key, redis.ZStore{
+		pipeline.ZInterStore(key, redis.ZStore{
 			Aggregate: "MAX",
 		}, cKey, orderKey)
 		pipeline.Expire(key, 60*time.Second) // 设置超时时间
@@ -85,5 +79,5 @@ func GetCommunityPostIDsInOrder(p *models.ParamPostList) ([]string, error) {
 		}
 	}
 
-	return getIDsFromKey(orderKey, p.Page, p.Size)
+	return getIDsFormKey(key, p.Page, p.Size)
 }

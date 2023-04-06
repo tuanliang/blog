@@ -6,7 +6,6 @@ import (
 )
 
 func GetCommunityList() ([]*models.Community, error) {
-	// 查找所有的community，并返回
 	return mysql.GetCommunityList()
 }
 

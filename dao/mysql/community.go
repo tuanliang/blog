@@ -8,10 +8,10 @@ import (
 )
 
 func GetCommunityList() (communityList []*models.Community, err error) {
-	sqlStr := "select community_id,community_name from community"
+	sqlStr := `select community_id,community_name from community`
 	if err := db.Select(&communityList, sqlStr); err != nil {
 		if err == sql.ErrNoRows {
-			zap.L().Warn("there is no community in db")
+			zap.L().Warn("there is no communit in db")
 			err = nil
 		}
 	}
@@ -26,5 +26,5 @@ func GetCommunityDetailByID(id int64) (community *models.CommunityDetail, err er
 			err = ErrorInvalidID
 		}
 	}
-	return community, err
+	return
 }

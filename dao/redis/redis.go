@@ -7,12 +7,13 @@ import (
 	"github.com/go-redis/redis"
 )
 
+// 声明一个全局的rdb变量
 var (
 	client *redis.Client
 	Nil    = redis.Nil
 )
 
-// Init 初始化连接
+// 初始化连接
 func Init(cfg *settings.RedisConfig) (err error) {
 	client = redis.NewClient(&redis.Options{
 		Addr:         fmt.Sprintf("%s:%d", cfg.Host, cfg.Port),
@@ -23,10 +24,7 @@ func Init(cfg *settings.RedisConfig) (err error) {
 	})
 
 	_, err = client.Ping().Result()
-	if err != nil {
-		return err
-	}
-	return nil
+	return
 }
 func Close() {
 	_ = client.Close()

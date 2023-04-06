@@ -1,29 +1,29 @@
 
-name: "web_app"
+name: "web-app"
 mode: "dev"
 port: 8081
-start_time: "2023-03-22"
+version: "v0.0.2"
+start_time: "2023-04-02"
 machine_id: 1
-
-auth:
-  jwt_expire: 8765
 
 log:
   level: "debug"
-  filename: "web_app.log"
+  filename: "web-app.log"
   max_size: 200
   max_age: 30
   max_backups: 7
+
 mysql:
-  host: "127.0.0.1"
-  port: 3306
+  host: "1.15.223.218"
+  port: 3307
   user: "root"
   password: "root"
-  dbname: "gotestdb"
+  dbname: "db01"
   max_open_conns: 200
   max_idle_conns: 50
+
 redis:
-  host: 127.0.0.1
+  host: "1.15.223.218"
   port: 6379
   password: ""
   db: 0
