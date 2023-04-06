@@ -6,7 +6,6 @@ import (
 	"blog/logger"
 	"blog/middleware"
 	"net/http"
-	"time"
 
 	gs "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
@@ -19,7 +18,15 @@ func Setup(mode string) *gin.Engine {
 		gin.SetMode(gin.ReleaseMode)
 	}
 	r := gin.New()
-	r.Use(logger.GinLogger(), logger.GinRecovery(true), middleware.RateLimitMiddleware(2*time.Second, 1))
+	// r.Use(logger.GinLogger(), logger.GinRecovery(true), middleware.RateLimitMiddleware(2*time.Second, 1))
+	r.Use(logger.GinLogger(), logger.GinRecovery(true))
+
+	r.LoadHTMLFiles("./templates/index.html")
+	r.Static("/static", "./static")
+	r.GET("/", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "index.html", nil)
+	})
+
 	r.GET("/swagger/*any", gs.WrapHandler(swaggerFiles.Handler))
 	r.GET("/ping", func(ctx *gin.Context) {
 		ctx.String(http.StatusOK, "ok")
@@ -31,6 +38,7 @@ func Setup(mode string) *gin.Engine {
 	v1.POST("/login", controller.LoginHandler)
 
 	v1.Use(middleware.JWTAuthMiddleware()) // 应用jwt中间件
+	v1.GET("/posts2", controller.GetPostListHandler2)
 
 	{
 		v1.GET("/community", controller.CommunityHandler)
@@ -38,7 +46,6 @@ func Setup(mode string) *gin.Engine {
 		v1.POST("/post", controller.CreatePostHandler)
 		v1.GET("/post/:id", controller.GetPostDetailHandler)
 		v1.GET("/posts", controller.GetPostListHandler)
-		v1.GET("/posts2", controller.GetPostListHandler2)
 
 		v1.POST("/vote", controller.PostVoteController)
 	}
