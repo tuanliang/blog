@@ -6,6 +6,7 @@ import (
 	"blog/logger"
 	"blog/middleware"
 	"net/http"
+	"time"
 
 	gs "github.com/swaggo/gin-swagger"
 	"github.com/swaggo/gin-swagger/swaggerFiles"
@@ -18,8 +19,11 @@ func Setup(mode string) *gin.Engine {
 		gin.SetMode(gin.ReleaseMode)
 	}
 	r := gin.New()
-	r.Use(logger.GinLogger(), logger.GinRecovery(true))
+	r.Use(logger.GinLogger(), logger.GinRecovery(true), middleware.RateLimitMiddleware(2*time.Second, 1))
 	r.GET("/swagger/*any", gs.WrapHandler(swaggerFiles.Handler))
+	r.GET("/ping", func(ctx *gin.Context) {
+		ctx.String(http.StatusOK, "ok")
+	})
 
 	v1 := r.Group("/api/v1")
 	// 注册业务路由
